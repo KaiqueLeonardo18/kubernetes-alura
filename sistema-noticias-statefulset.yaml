@@ -23,6 +23,13 @@ spec:
               mounthPath: /var/www/html/uploads
             - name: sessao
               mounthPath: /tmp
+      volumes:
+        - name: imagens
+          persistentVolumeClaim:
+            claimName: imagens-pvc
+        - name: sessao
+          persistentVolumeClaim:
+            claimName: sessao-pvc
   selector:
     matchLabels:
       app: sistema-noticias
